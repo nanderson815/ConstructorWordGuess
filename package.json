@@ -1,0 +1,26 @@
+{
+  "name": "constructorwordguess",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nanderson815/ConstructorWordGuess.git"
+  },
+  "keywords": [
+    "Word",
+    "Guess"
+  ],
+  "author": "Noah Anderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nanderson815/ConstructorWordGuess/issues"
+  },
+  "homepage": "https://github.com/nanderson815/ConstructorWordGuess#readme",
+  "dependencies": {
+    "inquirer": "^6.2.2"
+  }
+}
