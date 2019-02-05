@@ -7,14 +7,18 @@ function Word(word){
             this.letters.push((new Letter(word.charAt(i))));
         }
         };
+    this.createString = function(){
+        var string = "";
+        for (var i in this.letters){
+        string = string.concat(this.letters[i].guessedLetter() + " ");
+        }
+        return string;
+    }
     }
 
 
 var hello = new Word("hello");
 
 hello.wordString();
-
-console.log(hello.letters);
-
-
+console.log(hello.createString());
 
