@@ -1,5 +1,5 @@
 
-function Letter(){
+function Letter(char){
     this.char = char;
     this.guessed = false;
     this.guessedLetter = function(){
