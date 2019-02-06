@@ -3,12 +3,12 @@ var inquirer = require('inquirer');
 var Word = require('./Word');
 
 var wordArray = ['baseball', 'football', 'basketball', 'bocce', 'tennis', 'hockey', 'skiing', 'swimming'];
+var activeWord;
 
 function chooseWord() {
     var selection = wordArray[Math.floor(Math.random() * wordArray.length)];
-    var activeWord = new Word(selection);
+    activeWord = new Word(selection);
     activeWord.wordArray();
-    // console.log(activeWord);
 }
 
 function askQuestion(){
@@ -21,13 +21,16 @@ function askQuestion(){
             }
 
         ]).then(function (answer) {
-            console.log(answer.letter);
-            return answer.letter;
+            // console.log(answer.letter);
+            activeWord.checkLetter(answer.letter);
+            // console.log(activeWord);
+            console.log(activeWord.createString());
         });
 }
 
 
 chooseWord();
+
 askQuestion();
 
     
