@@ -10,7 +10,7 @@ function Word(word){
     this.createString = function(){
         var string = "";
         for (var i in this.letters){
-        string = string.concat(this.letters[i].guessedLetter() + " ");
+        string = string.concat(this.letters[i].guessedLetter());
         }
         return string;
     }

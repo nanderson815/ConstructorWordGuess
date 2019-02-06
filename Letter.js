@@ -6,7 +6,7 @@ function Letter(char){
         if (this.guessed){
             return this.char;
         } else {
-            return "_";
+            return "_ ";
         }
     };
     this.letterGuessed = function(C){
