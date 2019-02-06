@@ -2,7 +2,7 @@ var Letter = require('./Letter');
 
 function Word(word) {
     this.letters = [];
-    this.wordString = function () {
+    this.wordArray = function () {
         for (i = 0; i < word.length; i++) {
             this.letters.push((new Letter(word.charAt(i))));
         }
@@ -22,13 +22,22 @@ function Word(word) {
 }
 
 
-var hello = new Word("hello");
+module.exports = Word;
 
-hello.wordString();
-// console.log(hello.letters);
-// console.log(hello.createString());
 
-hello.checkLetter("h");
+
+
+
+// var hello = new Word("hello");
+
+
+// hello.wordArray();
+// console.log(hello);
+
+// // console.log(hello.letters);
+// // console.log(hello.createString());
+
+// hello.checkLetter("h");
 
 
 
