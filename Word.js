@@ -21,23 +21,4 @@ function Word(word) {
     };
 }
 
-
 module.exports = Word;
-
-
-
-
-
-// var hello = new Word("hello");
-
-
-// hello.wordArray();
-// console.log(hello);
-
-// // console.log(hello.letters);
-// // console.log(hello.createString());
-
-// hello.checkLetter("h");
-
-
-
