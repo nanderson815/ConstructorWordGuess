@@ -12,7 +12,7 @@ function chooseWord() {
     var selection = wordArray[Math.floor(Math.random() * wordArray.length)];
     activeWord = new Word(selection);
     activeWord.wordArray();
-}
+};
 
 function askQuestion() {
     inquirer
@@ -53,7 +53,7 @@ function askQuestion() {
             }
 
         });
-}
+};
 
 
 chooseWord();
