@@ -4,6 +4,7 @@ var Word = require('./Word');
 
 var wordArray = ['baseball', 'football', 'basketball', 'bocce', 'tennis', 'hockey', 'skiing', 'swimming'];
 var activeWord;
+var guesses = 10;
 
 function chooseWord() {
     var selection = wordArray[Math.floor(Math.random() * wordArray.length)];
@@ -25,6 +26,12 @@ function askQuestion(){
             activeWord.checkLetter(answer.letter);
             // console.log(activeWord);
             console.log(activeWord.createString());
+
+            guesses--;
+            console.log("You have " + guesses + " guesses remaining!");
+            if (guesses > 0){
+                askQuestion();
+            }
         });
 }
 
