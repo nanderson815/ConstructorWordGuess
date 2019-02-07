@@ -48,7 +48,7 @@ function askQuestion() {
                     }
                 }
             } else {
-                console.log("You already guessed that letter!");
+                console.log("");
                 askQuestion();
             }
 
