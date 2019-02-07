@@ -5,6 +5,7 @@ var Word = require('./Word');
 var wordArray = ['baseball', 'football', 'basketball', 'bocce', 'tennis', 'hockey', 'skiing', 'swimming'];
 var activeWord;
 var guesses = 10;
+var lettersGuessed = [];
 
 
 function chooseWord() {
@@ -23,33 +24,39 @@ function askQuestion() {
             }
 
         ]).then(function (answer) {
-            // console.log(answer.letter);
-            activeWord.checkLetter(answer.letter);
-            // console.log(activeWord);
-            var string = activeWord.createString();
-            console.log(string);
 
-            if (string.indexOf("_") === -1) {
-                console.log("That's Right! Guess a new letter to play again!");
-                guesses = 10;
-                chooseWord();
-                askQuestion();
-            } else {
-                guesses--;
-                console.log("You have " + guesses + " guesses remaining!");
-                if (guesses > 0) {
+            if (lettersGuessed.indexOf(answer.letter) === -1) {
+
+                lettersGuessed.push(answer.letter);
+                activeWord.checkLetter(answer.letter);
+                var string = activeWord.createString();
+                console.log(string);
+
+                if (string.indexOf("_") === -1) {
+                    console.log("That's Right! Guess a new letter to play again!");
+                    guesses = 10;
+                    lettersGuessed = [];
+                    chooseWord();
                     askQuestion();
                 } else {
-                    console.log("You ran out of guesses, you loose!");
+                    guesses--;
+                    console.log("You have " + guesses + " guesses remaining!");
+                    if (guesses > 0) {
+                        askQuestion();
+                    } else {
+                        console.log("You ran out of guesses, you loose!");
+                    }
                 }
-
+            } else {
+                console.log("You already guessed that letter!");
+                askQuestion();
             }
+
         });
 }
 
 
 chooseWord();
 console.log("Welcome to terminal hang man! Choose a letter to begin!");
-
 askQuestion();
 
