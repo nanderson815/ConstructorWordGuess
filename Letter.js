@@ -12,9 +12,6 @@ function Letter(char){
     this.letterGuessed = function(C){
         if (C === this.char){
             this.guessed = true;
-            console.log("Correct!");
-        } else {
-            console.log("That is incorrect, try again!");
         }
     };
 }

@@ -6,13 +6,14 @@ var wordArray = ['baseball', 'football', 'basketball', 'bocce', 'tennis', 'hocke
 var activeWord;
 var guesses = 10;
 
+
 function chooseWord() {
     var selection = wordArray[Math.floor(Math.random() * wordArray.length)];
     activeWord = new Word(selection);
     activeWord.wordArray();
 }
 
-function askQuestion(){
+function askQuestion() {
     inquirer
         .prompt([
             {
@@ -25,19 +26,30 @@ function askQuestion(){
             // console.log(answer.letter);
             activeWord.checkLetter(answer.letter);
             // console.log(activeWord);
-            console.log(activeWord.createString());
+            var string = activeWord.createString();
+            console.log(string);
 
-            guesses--;
-            console.log("You have " + guesses + " guesses remaining!");
-            if (guesses > 0){
+            if (string.indexOf("_") === -1) {
+                console.log("That's Right! Guess a new letter to play again!");
+                guesses = 10;
+                chooseWord();
                 askQuestion();
+            } else {
+                guesses--;
+                console.log("You have " + guesses + " guesses remaining!");
+                if (guesses > 0) {
+                    askQuestion();
+                } else {
+                    console.log("You ran out of guesses, you loose!");
+                }
+
             }
         });
 }
 
 
 chooseWord();
+console.log("Welcome to terminal hang man! Choose a letter to begin!");
 
 askQuestion();
 
-    
